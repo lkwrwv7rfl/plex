@@ -1,0 +1,12 @@
+docker create \
+  --name=plex \
+  --net=host \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e VERSION=docker \
+  -v /home/docker/plex:/config \
+  -v /mnt/data1/video:/movies2 \
+  -v /mnt/cryptmount:/movies1 \
+  -v /mnt/data1/torrent:/torrent \
+  --restart unless-stopped \
+  linuxserver/plex
